@@ -19,17 +19,19 @@ export class SearchBarComponent implements OnInit{
                private signalStore: SignalStore ){}
 
   ngOnInit(): void {
-    this.readResume();
+    this.readResume('IPSA');
   }
 
-  readResume(){
-    this.apiSer.getResume('IPSA').subscribe(resp => {
+  readResume(instrumento:string){
+    this.apiSer.getResume(instrumento).subscribe(resp => {
       this.signalStore.resume.set(resp.data);
-      //console.log(this.resume());
-      console.log(resp)
+
+      this.apiSer.getHistory(instrumento).subscribe(resp2 => {
+        this.signalStore.history.set(resp2.data)
+      })
+      
     });
-    
-    
   }
+
 
 }

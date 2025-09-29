@@ -15,3 +15,14 @@ body {
 .text-up {
   color: #43a047; /* verde ganancias */
 }
+
+/* Cambiar color del texto del tab activo */
+.p-tablist .p-tab[aria-selected="true"] {
+  color: #42a5f5 !important; /* azul */
+  border-color: #42a5f5 !important;
+}
+
+.p-tablist-active-bar{
+    background:#42a5f5 !important;
+}
+

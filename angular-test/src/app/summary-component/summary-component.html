@@ -1,1 +1,50 @@
-<p>summary-component works!</p>
+<p-tabs value="0" class="mt-5" *ngIf="signalStore.resume() as r">
+  <p-tablist>
+    <p-tab value="0" class="text-center" style="width: 50%">Resumen</p-tab>
+    <p-tab value="1" class="text-center" severity="warning" style="width: 50%">Detalles</p-tab>
+  </p-tablist>
+  <p-tabpanels>
+    <p-tabpanel value="0">
+      <div class="row">
+        <div class="col-6">Cotización</div>
+        <div class="col-6">{{ r.price.datetimeLastPrice }}</div>
+        <p-divider />
+        <div class="col-6 mt-2">MERCADO</div>
+        <div class="col-6 mt-2 text-end">{{ r.info.marketName }}</div>
+        <div class="col-6 mt-2">APERTURA</div>
+        <div class="col-6 mt-2 text-end">{{ r.price.openPrice }}</div>
+        <div class="col-6 mt-2">CIERRE ANTERIOR</div>
+        <div class="col-6 mt-2 text-end">{{ r.price.closePrice }}</div>
+        <div class="col-6 mt-2">MÁXIMO DIARIO</div>
+        <div class="col-6 mt-2 text-end">{{ r.price.maxDay }}</div>
+        <div class="col-6 mt-2">MÍNIMO DIARIO</div>
+        <div class="col-6 mt-2 text-end">{{ r.price.minDay }}</div>
+        <div class="col-6 mt-2">MÁXIMO 52 SEMANAS</div>
+        <div class="col-6 mt-2 text-end">{{ r.price.max52W }}</div>
+        <div class="col-6 mt-2">MÍNIMO 52 SEMANAS</div>
+        <div class="col-6 mt-2 text-end">{{ r.price.min52W }}</div>
+        <div class="col-6 mt-3">Variación</div>
+        <div class="col-6 text-end mt-3">%</div>
+        <p-divider />
+        <div class="col-6 mt-2">1 MES</div>
+        <div class="col-6 mt-2 text-end" [ngClass]="r.price.pct30D > 0 ? 'text-up' : 'text-down'">
+          <span *ngIf="r.price.pct30D > 0">+</span>{{ r.price.pct30D | number : '1.2-2' }}%
+        </div>
+        <div class="col-6 mt-2">1 AÑO</div>
+        <div
+          class="col-6 mt-2 text-end"
+          [ngClass]="r.price.pctRelW52 > 0 ? 'text-up' : 'text-down'"
+        >
+          <span *ngIf="r.price.pctRelW52 > 0">+</span>{{ r.price.pctRelW52 | number : '1.2-2' }}%
+        </div>
+        <div class="col-6 mt-2">AÑO A LA FECHA</div>
+        <div class="col-6 mt-2 text-end" [ngClass]="r.price.pctRelCY > 0 ? 'text-up' : 'text-down'">
+          <span *ngIf="r.price.pctRelCY > 0">+</span>{{ r.price.pctRelCY | number : '1.2-2' }}%
+        </div>
+      </div>
+    </p-tabpanel>
+    <p-tabpanel value="1">
+      <p class="m-0">TAB2</p>
+    </p-tabpanel>
+  </p-tabpanels>
+</p-tabs>

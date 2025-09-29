@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, effect, OnInit } from '@angular/core';
 import { ChartModule } from 'primeng/chart';
 import { ApiService } from '../shared/services/api-service';
+import { SignalStore } from '../shared/services/signal-store';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-chart-component',
-  imports: [ChartModule],
+  imports: [CommonModule,ChartModule],
   templateUrl: './chart-component.html',
   styleUrl: './chart-component.css'
 })
@@ -13,40 +15,45 @@ export class ChartComponent implements OnInit {
   public data: any;
   public options: any;
 
-  constructor( private apiSer: ApiService ){}
+  constructor( private apiSer: ApiService, 
+               public signalStore: SignalStore ){
+                this.dataChart();
+               }
 
   ngOnInit(): void {
-    
-    this.data = {
-      labels: ['09:00', '10:00', '11:00', '12:00', '13:00'],
-      datasets: [
-        {
-          label: 'IPSA',
-          data: [6520, 6510, 6500, 6495, 6480],
-          fill: true,  // activa el área
-          borderColor: '#42A5F5',
-          backgroundColor: 'rgba(66, 165, 245, 0.2)',
-          tension: 0.4,  // suaviza la línea
-          pointRadius: 0 // oculta los círculos de cada punto
-        }
-      ]
-    };
 
+  }
+
+
+  dataChart(){
     this.options = {
-      plugins: {
-        legend: { display: false } // oculta la leyenda si no la quieres
-      },
+      plugins: { legend: { display: false } },
       scales: {
-        x: {
-          ticks: { color: '#E0E0E0' },
-          grid: { color: 'rgba(255,255,255,0.1)' }
-        },
-        y: {
-          ticks: { color: '#E0E0E0' },
-          grid: { color: 'rgba(255,255,255,0.1)' }
-        }
+        x: { ticks: { color: '#E0E0E0' }, grid: { color: 'rgba(255,255,255,0.1)' } },
+        y: { ticks: { color: '#E0E0E0' }, grid: { color: 'rgba(255,255,255,0.1)' } }
       }
     };
+
+    effect(() => {
+      const r = this.signalStore.history();
+      if (r) {
+        this.data = {
+          labels: r.chart.map((d: any) => d.datetimeLastPrice),
+          datasets: [
+            {
+              label: 'IPSA',
+              data: r.chart.map((d: any) => d.lastPrice),
+              borderColor: '#42A5F5',
+              backgroundColor: 'rgba(66,165,245,0.2)',
+              fill: true,
+              tension: 0.4,
+              pointRadius: 0
+            }
+          ]
+        };
+      }
+    });
   }
+  
 
 }
