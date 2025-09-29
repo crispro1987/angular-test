@@ -1,2 +1,9 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Dependencias
+node_modules/
+
+# Angular build
+/dist/
+/out-tsc
