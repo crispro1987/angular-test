@@ -1,7 +1,28 @@
-<h2>IPSA, CHILE</h2>
-<p class="mt-3">Indice</p>
-<p-divider />
-<span>Valor Actual 333333</span>
-<span>Var.% Actual 3432432</span>
-<span>Var. Puntos Actual 728372873</span>
-<p-divider />
+<div class="container">
+  <div class="row">
+    <div class="col-12" *ngIf="signalStore.resume() as r">
+      <h2>{{ r.info.name }}, {{ r.info.countryName | uppercase }}</h2>
+      <p class="mt-3">Indice</p>
+      <p-divider />
+      <span
+        >Valor Actual <i class="pi pi-arrow-down ms-2 me-2"></i>
+        <strong>{{ r.price.lastPrice }}</strong></span
+      >
+      <span class="ms-3 me-3"
+        >Var.% Actual
+        <strong class="ms-2" [ngClass]="r.price.performanceRelative > 0 ? 'text-up' : 'text-down'"
+          >{{ r.price.performanceRelative }}%</strong
+        ></span
+      >
+      <span
+        >Var. Puntos Actual
+        <strong
+          class="ms-2"
+          [ngClass]="r.price.performanceAbsolute > 0 ? 'text-up' : 'text-down'"
+          >{{ r.price.performanceAbsolute }}</strong
+        ></span
+      >
+      <p-divider />
+    </div>
+  </div>
+</div>

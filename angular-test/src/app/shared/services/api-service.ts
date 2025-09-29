@@ -7,10 +7,12 @@ import { Observable } from 'rxjs';
 })
 export class ApiService {
 
+ 
+
   constructor( private http: HttpClient ){}
 
-  getValores(): Observable<any>{
-    return this.http.get('history/history-IPSA.json');
+  getResume(instrumento:string): Observable<any>{
+    return  this.http.get('resumen/IPSA.json');
   }
   
 }

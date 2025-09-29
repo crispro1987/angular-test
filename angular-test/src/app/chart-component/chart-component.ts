@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartModule } from 'primeng/chart';
+import { ApiService } from '../shared/services/api-service';
 
 @Component({
   selector: 'app-chart-component',
@@ -12,7 +13,7 @@ export class ChartComponent implements OnInit {
   public data: any;
   public options: any;
 
-  cosntructor(){}
+  constructor( private apiSer: ApiService ){}
 
   ngOnInit(): void {
     

@@ -1,30 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { DividerModule } from 'primeng/divider';
-import { ApiService } from '../shared/services/api-service';
+import { CommonModule } from '@angular/common';
+import { SignalStore } from '../shared/services/signal-store';
 
 @Component({
   selector: 'app-header-component',
-  imports: [DividerModule],
+  imports: [CommonModule,DividerModule],
   templateUrl: './header-component.html',
   styleUrl: './header-component.css'
 })
 export class HeaderComponent implements OnInit {
 
-  public history: any;
-
-  constructor( private apiSer: ApiService ){}
+  constructor( public signalStore: SignalStore ){}
 
   ngOnInit(): void {
-    /*this.read();*/
+    
   }
 
-  read(){
-    this.apiSer.getValores().subscribe(resp => {
-      this.history = resp
-      console.log(this.history)
-    });
-    
-    
-  }
+  
 
 }

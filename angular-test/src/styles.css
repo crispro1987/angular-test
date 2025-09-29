@@ -7,3 +7,11 @@ body {
   margin: 0;
   padding: 0;
 }
+
+.text-down {
+  color: #e53935; /* rojo pérdidas */
+}
+
+.text-up {
+  color: #43a047; /* verde ganancias */
+}
