@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  background-color: #121212; /* mismo tono que el dashboard */
+  color: #E0E0E0;            /* texto en gris claro */
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
