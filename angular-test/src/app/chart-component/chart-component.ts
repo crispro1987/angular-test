@@ -4,11 +4,12 @@ import { SignalStore } from '../shared/services/signal-store';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { SelectButtonModule } from 'primeng/selectbutton';
+import { ButtonModule } from 'primeng/button';
 import moment from 'moment';
 
 @Component({
   selector: 'app-chart-component',
-  imports: [CommonModule,ChartModule,FormsModule,SelectButtonModule],
+  imports: [CommonModule,ChartModule,FormsModule,SelectButtonModule,ButtonModule],
   templateUrl: './chart-component.html',
   styleUrl: './chart-component.css'
 })

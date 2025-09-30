@@ -41,3 +41,10 @@ body {
     cursor: pointer;
 }
 
+.p-button{
+    background: #040404 !important;
+    color: white !important;
+    border: none !important;
+}
+
+

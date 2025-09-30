@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, effect, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TabsModule } from 'primeng/tabs';
 import { TableModule } from 'primeng/table';
 import { InstrumentListComponent } from '../instrument-list-component/instrument-list-component';
