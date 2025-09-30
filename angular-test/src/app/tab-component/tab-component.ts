@@ -3,7 +3,6 @@ import { Component, effect, OnInit } from '@angular/core';
 import { TabsModule } from 'primeng/tabs';
 import { TableModule } from 'primeng/table';
 import { SignalStore } from '../shared/services/signal-store';
-import { DividerModule } from 'primeng/divider';
 
 @Component({
   selector: 'app-tab-component',
@@ -18,11 +17,9 @@ export class TabComponent implements OnInit {
 
   constructor( public signalStore: SignalStore ){
     this.readDataTable()
-
   }
 
   ngOnInit(): void {
-    
   }
 
   readDataTable(){
@@ -42,11 +39,13 @@ export class TabComponent implements OnInit {
         }));
 
         this.dataTable1 = mapped.slice(0, fifty);
-
         this.dataTable2 = mapped.slice(fifty);
-        
       }
     });
+  }
+
+  changeInstrument(instrumento:string){
+    this.signalStore.globalInstrument.set(instrumento);
   }
 
 }

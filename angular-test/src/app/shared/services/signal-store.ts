@@ -5,9 +5,14 @@ import { Injectable, signal } from '@angular/core';
 })
 export class SignalStore {
 
+  public globalInstrument = signal<string>('IPSA');
   public resume = signal<any>(null);
   public history = signal<any>(null);
   public constituents = signal<any>(null);
+
+  setGlobalInstrument(data: any){
+    this.globalInstrument.set(data);
+  }
 
   setResume(data: any) {
     this.resume.set(data);

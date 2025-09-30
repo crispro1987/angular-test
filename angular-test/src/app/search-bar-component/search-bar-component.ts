@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, effect, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { InputIcon } from 'primeng/inputicon';
 import { IconField } from 'primeng/iconfield';
@@ -26,10 +26,14 @@ export class SearchBarComponent implements OnInit{
   public constituents: any[] = [];
 
   constructor( private apiSer: ApiService, 
-               private signalStore: SignalStore ){}
+               private signalStore: SignalStore ){
+                effect(() => {
+                  this.readResume(signalStore.globalInstrument()) 
+                });
+               }
 
   ngOnInit(): void {
-    this.readResume('IPSA');
+    this.readResume(this.signalStore.globalInstrument());
   }
 
   readResume(instrumento:string){
@@ -42,7 +46,6 @@ export class SearchBarComponent implements OnInit{
         this.apiSer.getConstituents().subscribe(resp3 => {
           this.signalStore.constituents.set(resp3.data)
           this.constituents = resp3.data.constituents;
-          console.log(this.constituents)
         })
       })
     });
@@ -64,3 +67,4 @@ export class SearchBarComponent implements OnInit{
 
 
 }
+

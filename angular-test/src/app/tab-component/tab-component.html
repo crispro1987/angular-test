@@ -61,7 +61,9 @@
                 </ng-template>
                 <ng-template #body let-product>
                   <tr>
-                    <td>{{ product.codeInstrument }}</td>
+                    <td (click)="changeInstrument(product.codeInstrument)" class="cpointer">
+                      {{ product.codeInstrument }}
+                    </td>
                     <td>{{ product.lastPrice | number : '1.2-2' }}</td>
                     <td>{{ product.pctDay | number : '1.2-2' }}</td>
                     <td [ngClass]="product.pctDay > 0 ? 'text-up' : 'text-down'">
@@ -133,7 +135,9 @@
 
                 <ng-template #body let-product>
                   <tr>
-                    <td>{{ product.codeInstrument }}</td>
+                    <td (click)="changeInstrument(product.codeInstrument)" class="cpointer">
+                      {{ product.codeInstrument }}
+                    </td>
                     <td>{{ product.lastPrice | number : '1.2-2' }}</td>
                     <td>{{ product.pctDay | number : '1.2-2' }}</td>
                     <td [ngClass]="product.pctDay > 0 ? 'text-up' : 'text-down'">
