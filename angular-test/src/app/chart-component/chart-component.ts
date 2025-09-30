@@ -120,7 +120,6 @@ export class ChartComponent implements OnInit {
             moment(d.datetimeLastPrice, 'DD-MM-YYYY HH:mm')
               .isBetween(start1Y, lastDate, 'day', '[]')
           );
-          console.log('Último año:', filter1Y);
           this.refreshData(filter1Y)
           break;
 
