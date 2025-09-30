@@ -32,3 +32,9 @@ body {
 .p-iconfield .p-autocomplete-input {
   width: 100% !important;
 }
+
+.p-tablist,
+.p-tabpanels,
+.p-datatable-tbody > tr {
+    background: none;
+}
