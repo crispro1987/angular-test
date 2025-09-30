@@ -26,3 +26,9 @@ body {
     background:#42a5f5 !important;
 }
 
+
+.p-iconfield, 
+.p-iconfield .p-autocomplete,
+.p-iconfield .p-autocomplete-input {
+  width: 100% !important;
+}

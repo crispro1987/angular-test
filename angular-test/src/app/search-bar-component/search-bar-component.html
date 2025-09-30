@@ -1,4 +1,9 @@
 <p-iconfield class="mt-3">
   <p-inputicon class="pi pi-search" />
-  <input type="text" pInputText placeholder="Busca un instrumento" class="w-100" />
+  <p-autocomplete
+    [suggestions]="items"
+    (completeMethod)="search($event)"
+    placeholder="Busca un instrumento"
+    (onSelect)="send($event)"
+  />
 </p-iconfield>

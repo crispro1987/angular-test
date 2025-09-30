@@ -7,6 +7,7 @@ export class SignalStore {
 
   public resume = signal<any>(null);
   public history = signal<any>(null);
+  public constituents = signal<any>(null);
 
   setResume(data: any) {
     this.resume.set(data);
@@ -16,6 +17,8 @@ export class SignalStore {
     this.history.set(data)
   }
 
-
+  setConstituents(data: any){
+    this.constituents.set(data)
+  }
   
 }

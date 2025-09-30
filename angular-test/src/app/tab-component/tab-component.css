@@ -1,0 +1,7 @@
+:host ::ng-deep .p-datatable.p-datatable-sm .p-datatable-tbody > tr > td {
+  font-size: .8rem !important;
+}
+
+:host ::ng-deep .p-datatable.p-datatable-sm .p-datatable-thead > tr > th{
+font-size: .8rem !important;
+}
