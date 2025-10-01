@@ -10,7 +10,7 @@ export class SignalStore {
   public history = signal<any>(null);
   public constituents = signal<any>(null);
 
-  setGlobalInstrument(data: any){
+  setGlobalInstrument(data: string){
     this.globalInstrument.set(data);
   }
 

@@ -8,6 +8,10 @@ body {
   padding: 0;
 }
 
+.text{
+    font-size: .7rem;
+}
+
 .text-down {
   color: #e53935; 
 }
@@ -47,4 +51,7 @@ body {
     border: none !important;
 }
 
+.p-chart canvas {
+  max-height: 300px !important;
+}
 

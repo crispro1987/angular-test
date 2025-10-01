@@ -26,7 +26,6 @@ export class ChartComponent implements OnInit {
     { label: '1A', value: '1A' },
     { label: '5A', value: '5A' }
   ];
-  
   public selectedRange = '1D';
 
   constructor( public signalStore: SignalStore ){

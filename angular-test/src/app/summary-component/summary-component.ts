@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { TabsModule } from 'primeng/tabs';
 import { SignalStore } from '../shared/services/signal-store';
 import { DividerModule } from 'primeng/divider';
@@ -10,13 +10,8 @@ import { DividerModule } from 'primeng/divider';
   templateUrl: './summary-component.html',
   styleUrl: './summary-component.css'
 })
-export class SummaryComponent implements OnInit {
+export class SummaryComponent {
 
   constructor( public signalStore: SignalStore ) {}
-
-  ngOnInit(): void {
-    
-  }
-
   
 }

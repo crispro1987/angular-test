@@ -6,7 +6,7 @@ import { IconField } from 'primeng/iconfield';
 import { InputTextModule } from 'primeng/inputtext';
 import { ApiService } from '../shared/services/api-service';
 import { SignalStore } from '../shared/services/signal-store';
-import { AutoCompleteModule } from 'primeng/autocomplete';
+import { AutoCompleteModule, AutoCompleteSelectEvent } from 'primeng/autocomplete';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 
@@ -25,7 +25,6 @@ interface AutoCompleteCompleteEvent {
 export class SearchBarComponent implements OnInit{
 
   public items: any[] = [];
-  public value: any;
   public constituents: any[] = [];
 
   constructor( private apiSer: ApiService, 
@@ -68,7 +67,7 @@ export class SearchBarComponent implements OnInit{
     }) 
   }
 
-  send(event:any){
+  send(event:AutoCompleteSelectEvent){
     this.readResume(event.value);
   }
 

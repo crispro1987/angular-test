@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { TabsModule } from 'primeng/tabs';
 import { TableModule } from 'primeng/table';
 import { InstrumentListComponent } from '../instrument-list-component/instrument-list-component';
@@ -10,12 +10,6 @@ import { InstrumentListComponent } from '../instrument-list-component/instrument
   templateUrl: './tab-component.html',
   styleUrl: './tab-component.css'
 })
-export class TabComponent implements OnInit {
-
+export class TabComponent {
   constructor(){}
-
-  ngOnInit(): void {
-  }
-
- 
 }
